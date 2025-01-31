@@ -1,0 +1,54 @@
+.main-wrapper {
+    padding-inline: 20px;
+    margin-top: 20px;
+  }
+  
+  .section_heading {
+    font-size: 30px;
+    margin-block: 9px;
+    margin-left: 14px;
+  }
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tr {
+    /* margin-block: 8px; */
+    font-size: 20px;
+  }
+  
+
+  th {
+    background-color: #365486;
+    font-size: 19px;
+    color: white;
+    padding: 16px;
+    text-align: left;
+    height: 35px;
+  }
+  
+
+  td {
+    padding: 16px;
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+
+  tr:hover {
+    background-color: #ddd;
+  }
+  
+  tr:hover td {
+    background-color: #C3E2C2;
+    color: white;
+  }
+  

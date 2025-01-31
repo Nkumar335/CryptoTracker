@@ -1,0 +1,37 @@
+<div class="main_wrapper">
+    <div class="section_heading">List of 10 Trending Coins</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Coin</th>
+                <th>Price (USD)</th>
+                <th>Column 3</th>
+                <th>Ath Change (%)</th>
+                <th>Market Cap</th>
+                <th>Total Supply</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of trendingCoinsList; track $index) {
+            <tr>
+                <td><strong>{{item?.name}}</strong></td>
+                <td>{{item?.current_price}}</td>
+                <td>{{item?.market_cap_change_percentage_24h}}</td>
+                <td>{{item?.ath_change_percentage}}</td>
+                <td>{{item?.market_cap}}</td>
+                <td>{{(item?.total_supply).toFixed(2)}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+  
+
+
+ 
+    
+  
+  
