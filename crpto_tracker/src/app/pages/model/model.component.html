@@ -1,27 +1,65 @@
-<div class="modal" id="myModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
-  
+<div class="modal" id="myModal" (hidden.bs.modal)="resetForm()">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Get Crypto Amount</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+  
+
+      <div class="modal-body">
+        <form [formGroup]="userForm">
+          <div class="mb-3">
+            <label class="form-label">Select Crypto Coin:</label>
+            <select class="form-select" formControlName="coin_id">
+              @for(coin of cryptoCoins; track coin.id ){
+              <option [value]="coin.id">{{coin.name | uppercase}}</option>
+              }
+            </select>
+            <div class="text-danger">
+              @if(userForm.controls['coin_id'].touched && userForm.controls['coin_id'].errors?.['required'] ) {
+              <span>This Field is required</span>
+              }
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Select Crypto Currency:</label>
+            <select class="form-select" formControlName="currency">
+              @for(currency of cryptoCurrencies; track currency ){
+              <option [value]="currency">{{currency | uppercase}}</option>
+              }
+            </select>
+            <div class="text-danger">
+              @if(userForm.controls['currency'].touched && userForm.controls['currency'].errors?.['required'] ) {
+              <span>This Field is required</span>
+              }
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Enter Amount:</label>
+            <input type="number" class="form-control" id="inputAmount" name="inputAmount" formControlName="inputAmount">
+            <div class="text-danger">
+              @if(userForm.controls['inputAmount'].touched && userForm.controls['inputAmount'].errors?.['required'] ) {
+              <span>This Field is required</span>
+              }
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+      @if(!isResultAmount) {
+        <div class="result_div">See your converted amount here</div>
+      }@else{
+        <div class="result_div">Total Amount of Crypto Coin <strong>{{enteredValue.coin_id | uppercase}}</strong> for Currency <strong>{{enteredValue.currency}}</strong> is <strong>{{(resultedAmount).toFixed(4)}}</strong>.</div>
+      }
+
+      <div class="modal-footer">
+        <button (click)="onViewAmount()" type="button" class="btn btn-secondary">View Amount</button>
+      </div>
+
     </div>
   </div>
-
-  <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-    Open modal
-  </button>
+</div>

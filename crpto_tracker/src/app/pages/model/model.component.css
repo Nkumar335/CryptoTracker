@@ -1,0 +1,23 @@
+.custom-dropdown-wrapper {
+    max-height: 200px; /* Set fixed height for dropdown */
+    overflow-y: auto;  /* Enable scrolling */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+  }
+  
+  .custom-dropdown {
+    width: 100%;
+    height: auto;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+  }
+  
+  .result_div{
+    margin-bottom: 16px;
+    margin-left: 17px;
+    font-size: larger;
+  }

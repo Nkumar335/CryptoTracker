@@ -25,7 +25,9 @@ export class CurrencyService {
     return this.http.get<any>("https://crypto-tracker-backend-five.vercel.app/crypto_coins");
   }
 
-  getConvertedAmount(): Observable<any> {
-    return this.http.get<any>("https://crypto-tracker-backend-five.vercel.app/get/amount");
+  getConvertedAmount(enteredValue: any): Observable<any> {
+
+    console.log("enteredValue",enteredValue)
+    return this.http.post<any>("https://crypto-tracker-backend-five.vercel.app/get/amount", enteredValue);
   }
 }
